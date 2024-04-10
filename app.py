@@ -27,11 +27,11 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 # 必須放上自己的Channel Access Token
-line_bot_api = LineBotApi('xxxxxxxxxx')
+line_bot_api = LineBotApi('te/bzWwRmL8YVwG2nJdEUaaen2qBMvUDjvMxiWxylV3B5zt9Tto+N4IVKxMAB9uUG6yq4981CsitJ6IDTkFegFs8mmaYCw7bhFDgMA+2BJkqP3rrQKYTU1meE4QfcbyNgWbsYiY07EsYnh+YgXdMaQdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
-handler = WebhookHandler('xxxxxxxxxx')
+handler = WebhookHandler('aae4b3248f3a4655a985d1bde10c6ab5')
 # 這裏是推給自己 message 告訴自己連接成功，因此第一個參數要放自己的 User ID
-line_bot_api.push_message('xxxxxxxxxx',TextSendMessage(text='連接成功'))
+line_bot_api.push_message('Ueb0d6dea2a95c12fdf716b078d624834',TextSendMessage(text='連接成功'))
 
 
 # ----連接資料庫 traveling----
