@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 #載入LineBot所需要的套件
@@ -27,20 +28,20 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 # 必須放上自己的Channel Access Token
-line_bot_api = LineBotApi('te/bzWwRmL8YVwG2nJdEUaaen2qBMvUDjvMxiWxylV3B5zt9Tto+N4IVKxMAB9uUG6yq4981CsitJ6IDTkFegFs8mmaYCw7bhFDgMA+2BJkqP3rrQKYTU1meE4QfcbyNgWbsYiY07EsYnh+YgXdMaQdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
 # 必須放上自己的Channel Secret
-handler = WebhookHandler('aae4b3248f3a4655a985d1bde10c6ab5')
+handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 # 這裏是推給自己 message 告訴自己連接成功，因此第一個參數要放自己的 User ID
-line_bot_api.push_message('Ueb0d6dea2a95c12fdf716b078d624834',TextSendMessage(text='連接成功'))
+line_bot_api.push_message(os.getenv('USER_ID'),TextSendMessage(text='連接成功'))
 
 
 # ----連接資料庫 traveling----
 
-client = MongoClient('mongodb+srv://xxxxxxxxxx')
+client = MongoClient('mongodb+srv://r0980040:nuToa9PunCm65tgH@cluster0.wpk1rjx.mongodb.net/traveling')
 
 def get_database():
    # Provide the mongodb atlas url to connect python to mongodb using pymongo
-   CONNECTION_STRING = "mongodb+srv://xxxxxxxxxx"
+   CONNECTION_STRING = "mongodb+srv://r0980040:nuToa9PunCm65tgH@cluster0.wpk1rjx.mongodb.net/traveling"
    # Create a connection using MongoClient.
    client = MongoClient(CONNECTION_STRING)
    # Create the database
