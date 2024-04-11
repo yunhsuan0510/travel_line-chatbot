@@ -7,3 +7,4 @@ Requests==2.30.0
 psycopg2_binary==2.9.6
 pymongo==4.4.0
 gunicorn==19.7.1
+certifi
