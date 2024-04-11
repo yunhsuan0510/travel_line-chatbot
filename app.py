@@ -14,7 +14,7 @@ from linebot.models import *
 import re
 import random
 import urllib.parse
-
+import os
 # 計算距離所需要的套件
 import pandas as pd
 import requests
@@ -1194,7 +1194,7 @@ def handle_postback(event):
 
 
 #主程式
-import os
+
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
