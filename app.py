@@ -21,7 +21,7 @@ import requests
 from bs4 import BeautifulSoup
 from math import radians, cos, sin, asin, sqrt 
 import heapq
-
+import certifi
 #mongodb
 from pymongo import MongoClient
 
@@ -36,14 +36,14 @@ line_bot_api.push_message(os.getenv('USER_ID'),TextSendMessage(text='連接成�
 
 
 # ----連接資料庫 traveling----
-
-client = MongoClient('mongodb+srv://r0980040:nuToa9PunCm65tgH@cluster0.wpk1rjx.mongodb.net/traveling')
+ca = certifi.where()
+client = MongoClient('mongodb+srv://r0980040:nuToa9PunCm65tgH@cluster0.wpk1rjx.mongodb.net/traveling', tlsCAFile=ca)
 
 def get_database():
    # Provide the mongodb atlas url to connect python to mongodb using pymongo
    CONNECTION_STRING = "mongodb+srv://r0980040:nuToa9PunCm65tgH@cluster0.wpk1rjx.mongodb.net/traveling"
    # Create a connection using MongoClient.
-   client = MongoClient(CONNECTION_STRING)
+   client = MongoClient(CONNECTION_STRING, tlsCAFile=ca)
    # Create the database
    return client['traveling']
 
