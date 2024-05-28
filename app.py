@@ -39,6 +39,10 @@ line_bot_api.push_message(os.getenv('USER_ID'),TextSendMessage(text='連接成�
 ca = certifi.where()
 client = MongoClient('mongodb+srv://r0980040:nuToa9PunCm65tgH@cluster0.wpk1rjx.mongodb.net/traveling', tlsCAFile=ca)
 
+@app.route('/')
+def home():
+    return 'Welcome to the Home Page', 200
+    
 def get_database():
    # Provide the mongodb atlas url to connect python to mongodb using pymongo
    CONNECTION_STRING = "mongodb+srv://r0980040:nuToa9PunCm65tgH@cluster0.wpk1rjx.mongodb.net/traveling"
@@ -83,7 +87,7 @@ def callback():
     except InvalidSignatureError:
         abort(400)
 
-    return 'OK'
+    return 'Callback received', 200
 
 ##### 機器人腳本都在這裏，依序處理： LocationMessage -> TexMessage -> PostBackEvent #####
 
