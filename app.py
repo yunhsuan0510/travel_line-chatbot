@@ -27,7 +27,6 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-@app.route("/")
 # 必須放上自己的Channel Access Token
 line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
 # 必須放上自己的Channel Secret
